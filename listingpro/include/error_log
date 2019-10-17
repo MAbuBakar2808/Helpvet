@@ -1,0 +1,1 @@
+[02-Mar-2018 18:18:52 UTC] PHP Fatal error:  Call to undefined function is_user_logged_in() in /home/thetownadvisor/public_html/helpvet/wp-content/themes/listingpro/include/login-register.php on line 86

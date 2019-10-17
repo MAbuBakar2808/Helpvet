@@ -202,8 +202,8 @@
 				$post_url = get_the_permalink($post_id);
 				$name1 = sanitize_text_field($formData['name7']);
 				$email = sanitize_text_field($formData['email7']);
-				$phone = sanitize_text_field($formData['phone']);
-				$message = sanitize_text_field($formData['message7']);
+				$phone = $formData['phone7'];
+				$message = $formData['message7'];
 				$authorID = sanitize_text_field($formData['author_id']);
 				$enableCaptcha = false;
 				$processLead = true;
@@ -250,7 +250,6 @@
 						'sender_phone' => "$phone",
 						'sender_message' => "$message"
 					));
-					
 					
 					$headers = "From: " . strip_tags($email) . "\r\n";
 					$headers .= "Reply-To: ". strip_tags($email) . "\r\n";

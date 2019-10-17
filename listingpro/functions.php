@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * Listingpro Functions.
  *
@@ -13,21 +15,21 @@
 
 	add_action( 'after_setup_theme', 'listingpro_theme_setup' );
 	function listingpro_theme_setup() {
-		
+
 		/* Text Domain */
 		load_theme_textdomain( 'listingpro', get_template_directory() . '/languages' );
-		
+
 		/* Theme supports */
-		
+
 		add_editor_style();
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( "title-tag" );
 		add_theme_support( "custom-header" );
 		add_theme_support( "custom-background" ) ;
 		add_theme_support('automatic-feed-links');
-		
+
 		remove_post_type_support( 'page', 'thumbnail' );
-		
+
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -39,7 +41,7 @@
 			'comment-list'
 			)
 		);
-		
+
 		// We are using three menu locations.
 		register_nav_menus( array(
 			'primary'         => esc_html__( 'Homepage Menu', 'listingpro' ),
@@ -48,86 +50,86 @@
 			'footer_menu' 	  => esc_html__( 'Footer Menu', 'listingpro' ),
 			'mobile_menu' 	  => esc_html__( 'Mobile Menu', 'listingpro' ),
 		) );
-		
+
 		/* Image sizes */
-		add_image_size( 'listingpro-blog-grid', 372, 240, true ); // (cropped)		
-		add_image_size( 'listingpro-blog-grid2', 372, 400, true ); // (cropped)		
-		add_image_size( 'listingpro-blog-grid3', 672, 430, true ); // (cropped)		
-		add_image_size( 'listingpro-listing-grid', 272, 231, true ); // (cropped)		
-		add_image_size( 'listingpro-listing-gallery', 580, 408, true ); // (cropped)		
-		add_image_size( 'listingpro-list-thumb',287, 190, true ); // (cropped)		
-		add_image_size( 'listingpro-author-thumb',63, 63, true ); // (cropped)		
-		add_image_size( 'listingpro-gallery-thumb1',458, 425, true ); // (cropped)		
-		add_image_size( 'listingpro-gallery-thumb2',360, 198, true ); // (cropped)		
-		add_image_size( 'listingpro-gallery-thumb3',263, 198, true ); // (cropped)		
+		add_image_size( 'listingpro-blog-grid', 372, 240, true ); // (cropped)
+		add_image_size( 'listingpro-blog-grid2', 372, 400, true ); // (cropped)
+		add_image_size( 'listingpro-blog-grid3', 672, 430, true ); // (cropped)
+		add_image_size( 'listingpro-listing-grid', 272, 231, true ); // (cropped)
+		add_image_size( 'listingpro-listing-gallery', 580, 408, true ); // (cropped)
+		add_image_size( 'listingpro-list-thumb',287, 190, true ); // (cropped)
+		add_image_size( 'listingpro-author-thumb',63, 63, true ); // (cropped)
+		add_image_size( 'listingpro-gallery-thumb1',458, 425, true ); // (cropped)
+		add_image_size( 'listingpro-gallery-thumb2',360, 198, true ); // (cropped)
+		add_image_size( 'listingpro-gallery-thumb3',263, 198, true ); // (cropped)
 		add_image_size( 'listingpro-gallery-thumb4',653, 199, true ); // (cropped)
-		
+
 		add_image_size( 'listingpro-detail_gallery',383, 454, true ); // (cropped)
-		
-		add_image_size( 'listingpro-checkout-listing-thumb',220, 80, true ); // (cropped)	
+
+		add_image_size( 'listingpro-checkout-listing-thumb',220, 80, true ); // (cropped)
 		add_image_size( 'listingpro-review-gallery-thumb',184, 135, true ); // (cropped)
 		add_image_size( 'listingpro-thumb4',272, 300, true ); // (cropped)
-		
+
 		//for location
 		add_image_size( 'listingpro_location270_400',270, 400, true ); // (cropped)
 		add_image_size( 'listingpro_location570_455',570, 455, true ); // (cropped)
 		add_image_size( 'listingpro_location570_228',570, 228, true ); // (cropped)
 		add_image_size( 'listingpro_location270_197',270, 197, true ); // (cropped)
-		
-		add_image_size( 'listingpro_cats270_213',270, 213, true ); // (cropped) 
-		
-		
-		
+
+		add_image_size( 'listingpro_cats270_213',270, 213, true ); // (cropped)
+
+
+
 	}
-	
+
 	if ( ! isset( $content_width ) ) $content_width = 900;
 	/* ============== Dynamic options and Styling ============ */
 	require_once THEME_PATH . '/include/dynamic-options.php';
-	
+
 	/* ============== Breadcrumb ============ */
 	require_once THEME_PATH . '/templates/breadcrumb.php';
-	
+
 	/* ============== Blog Comments ============ */
-	require_once THEME_PATH . '/templates/blog-comments.php';	
+	require_once THEME_PATH . '/templates/blog-comments.php';
 
 	/* ============== Required Plugins ============ */
 	require_once THEME_PATH . "/include/plugins/install-plugin.php";
-	
+
 	/* ============== icons ============ */
 	require_once THEME_PATH . "/include/icons.php";
-	
+
 	/* ============== List confirmation ============ */
 	require_once THEME_PATH . "/include/list-confirmation.php";
-	
+
 	/* ============== Login/Register ============ */
 	require_once THEME_PATH . "/include/login-register.php";
-	
+
 	/* ============== Search Filter ============ */
 	require_once THEME_PATH . "/include/search-filter.php";
-	
+
 	/* ============== Claim List ============ */
 	require_once THEME_PATH . "/include/single-ajax.php";
-	
+
 	/* ============== Social Share ============ */
 	require_once THEME_PATH . "/include/social-share.php";
-	
+
 	/* ============== Ratings ============ */
 	require_once THEME_PATH . "/include/reviews/ratings.php";
-	
+
 	/* ============== Last Review ============ */
 	require_once THEME_PATH . "/include/reviews/last-review.php";
-	
+
 	/* ============== Check Time status ============ */
 	require_once THEME_PATH . "/include/time-status.php";
-	
+
 	/* ============== Banner Catss ============ */
 	require_once THEME_PATH . "/include/banner-cats.php";
-	
+
 	/* ============== Fav Function ============ */
 	require_once THEME_PATH . "/include/favorite-function.php";
-	
+
 	/* ============== Live Chat ============ */
-	
+
 	/* ============== listing Widgets ============ */
 	require_once THEME_PATH . "/include/widgets/widget_most_viewed.php";
 	require_once THEME_PATH . "/include/widgets/widget_ads_listing.php";
@@ -135,43 +137,43 @@
 	require_once THEME_PATH . "/include/widgets/contact_widget.php";
 	require_once THEME_PATH . "/include/widgets/category_widget.php";
 	require_once THEME_PATH . "/include/widgets/recent_posts_widget.php";
-	
+
 	/* ============== Reviews Form ============ */
 	require_once THEME_PATH . "/include/reviews/reviews-form.php";
-	
+
 	/* ============== all reviews ============ */
 	require_once THEME_PATH . "/include/reviews/all-reviews.php";
-	
+
 	/* ============== review-submit ============ */
 	require_once THEME_PATH . "/include/reviews/review-submit.php";
-	
+
 	/* ============== all reviews ============ */
 	require_once THEME_PATH . "/include/all-extra-fields.php";
-	
-	
+
+
 		/* ============== listing campaign save  ============ */
 	require_once THEME_PATH . "/include/paypal/campaign-save.php";
-	
+
 	/* ============== invoice function ============ */
 	require_once THEME_PATH . "/include/invoices/invoice-functions.php";
-	
+
 	require_once THEME_PATH . "/include/invoices/invoice-modal.php";
-	
-	
+
+
 	/* ============== Approve review ============ */
 	require_once THEME_PATH . "/include/reviews/approve-review.php";
-	
+
 	/* ============== setup wizard =============== */
 	require_once THEME_PATH . "/include/setup/envato_setup.php";
 	//importer
 	require_once THEME_PATH . "/include/setup/importer/init.php";
-	
+
 	/* ============== listing data db save ============ */
 	require_once THEME_PATH . "/include/listingdata_db_save.php";
-	
+
 	/* ============== listing home map  ============ */
 	require_once THEME_PATH . "/include/home_map.php";
-	
+
 	/* ============== listing stripe ajax  ============ */
 
 	require_once THEME_PATH . "/include/stripe/stripe-ajax.php";
@@ -180,8 +182,8 @@
 
 	require_once THEME_PATH . "/include/2checkout/payment.php";
 	require_once THEME_PATH . "/include/2checkout/payment-campaigns.php";
-	
-	
+
+
 	/* ============== ListingPro Style Load ============ */
 	add_action('wp_enqueue_scripts', 'listingpro_style');
 	function listingpro_style() {
@@ -193,7 +195,7 @@
 		wp_enqueue_style('Mmenu', THEME_DIR . '/assets/lib/jquerym.menu/css/jquery.mmenu.all.css');
 		wp_enqueue_style('MapBox', THEME_DIR . '/assets/css/mapbox.css');
 		wp_enqueue_style('Chosen', THEME_DIR . '/assets/lib/chosen/chosen.css');
-		
+
 		global $listingpro_options;
 		$app_view_home  =   $listingpro_options['app_view_home'];
 		$app_view_home  =   url_to_postid( $app_view_home );
@@ -202,13 +204,13 @@
 			   wp_enqueue_style('Slick-theme', THEME_DIR . '/assets/lib/slick/slick-theme.css');
 			   wp_enqueue_style('css-prettyphoto', THEME_DIR . '/assets/css/prettyphoto.css');
 		}
-		
+
 		if(!is_front_page()){
 			wp_enqueue_style('jquery-ui', THEME_DIR . '/assets/css/jquery-ui.css');
 		}
 		wp_enqueue_style('icon8', THEME_DIR . '/assets/lib/icon8/styles.min.css');
 		wp_enqueue_style('Color', THEME_DIR . '/assets/css/colors.css');
-		wp_enqueue_style('custom-font', THEME_DIR . '/assets/css/font.css');		
+		wp_enqueue_style('custom-font', THEME_DIR . '/assets/css/font.css');
 		wp_enqueue_style('Main', THEME_DIR . '/assets/css/main.css');
 		wp_enqueue_style('Responsive', THEME_DIR . '/assets/css/responsive.css');
 		/* by haroon */
@@ -218,52 +220,52 @@
 		wp_enqueue_style('dynamiclocation', THEME_DIR . '/assets/css/city-autocomplete.css');
 		wp_enqueue_style('lp-body-overlay', THEME_DIR . '/assets/css/common.loading.css');
 		/* end for location */
-		
+
 		//if(is_archive()){
 			wp_enqueue_style('bootstrapslider', THEME_DIR . '/assets/lib/bootstrap/css/bootstrap-slider.css');
 		//}
-		
+
 		wp_enqueue_style('listingpro', STYLESHEET_DIR . '/style.css');
-		
+
 	}
-	
+
 
 	/* ============== ListingPro Script Load ============ */
 
 	add_action('wp_enqueue_scripts', 'listingpro_scripts');
 
 	function listingpro_scripts() {
-		
-		
+
+
 		global $listingpro_options;
-		
+
 		wp_enqueue_script('Mapbox', THEME_DIR . '/assets/js/mapbox.js', 'jquery', '', true);
 		wp_enqueue_script('Mapbox-leaflet', THEME_DIR . '/assets/js/leaflet.markercluster.js', 'jquery', '', true);
 
 		//wp_enqueue_script('Build', THEME_DIR . '/assets/js/build.min.js', 'jquery', '', true);
-		
-		wp_enqueue_script('Chosen',THEME_DIR. '/assets/lib/chosen/chosen.jquery.js', 'jquery', '', true);	
-		
+
+		wp_enqueue_script('Chosen',THEME_DIR. '/assets/lib/chosen/chosen.jquery.js', 'jquery', '', true);
+
 		wp_enqueue_script('bootstrap', THEME_DIR . '/assets/lib/bootstrap/js/bootstrap.min.js', 'jquery', '', true);
-		
+
 		wp_enqueue_script('Mmenu', THEME_DIR . '/assets/lib/jquerym.menu/js/jquery.mmenu.min.all.js', 'jquery', '', true);
-		
+
 		wp_enqueue_script('magnific-popup', THEME_DIR . '/assets/lib/Magnific-Popup-master/jquery.magnific-popup.min.js', 'jquery', '', true);
-		
-		wp_enqueue_script('select2', THEME_DIR . '/assets/js/select2.full.min.js', 'jquery', '', true);	
-		
+
+		wp_enqueue_script('select2', THEME_DIR . '/assets/js/select2.full.min.js', 'jquery', '', true);
+
 		wp_enqueue_script('popup-classie', THEME_DIR . '/assets/lib/popup/js/classie.js', 'jquery', '', true);
-		
-		wp_enqueue_script('modalEffects', THEME_DIR. '/assets/lib/popup/js/modalEffects.js', 'jquery', '', true);		
-		wp_enqueue_script('2checkout', THEME_DIR. '/assets/js/2co.min.js', 'jquery', '', true);		
-		
+
+		wp_enqueue_script('modalEffects', THEME_DIR. '/assets/lib/popup/js/modalEffects.js', 'jquery', '', true);
+		wp_enqueue_script('2checkout', THEME_DIR. '/assets/js/2co.min.js', 'jquery', '', true);
+
 		if(class_exists('Redux')){
 			$mapAPI = '';
 			$mapAPI = $listingpro_options['google_map_api'];
 			if(empty($mapAPI)){
 				$mapAPI = 'AIzaSyDQIbsz2wFeL42Dp9KaL4o4cJKJu4r8Tvg';
 			}
-			wp_enqueue_script('mapsjs', 'https://maps.googleapis.com/maps/api/js?v=3&amp;key='.$mapAPI.'&amp;libraries=places', 'jquery', '', false);	
+			wp_enqueue_script('mapsjs', 'https://maps.googleapis.com/maps/api/js?v=3&amp;key='.$mapAPI.'&amp;libraries=places', 'jquery', '', false);
 		}
 		if(!is_front_page()){
 			wp_enqueue_script('pagination', THEME_DIR . '/assets/js/pagination.js', 'jquery', '', true);
@@ -271,14 +273,14 @@
 		/* IF ie9 */
 			wp_enqueue_script('html5shim', 'https://html5shim.googlecode.com/svn/trunk/html5.js', array(), '1.0.0', true);
 			wp_script_add_data( 'html5shim', 'conditional', 'lt IE 9' );
-			
+
 			wp_enqueue_script('nicescroll', THEME_DIR. '/assets/js/jquery.nicescroll.min.js', 'jquery', '', true);
 			wp_enqueue_script('chosen-jquery', THEME_DIR . '/assets/js/chosen.jquery.min.js', 'jquery', '', true);
 			wp_enqueue_script('jquery-ui',THEME_DIR . '/assets/js/jquery-ui.js', 'jquery', '', true);
 		if(is_page_template( 'template-dashboard.php' )){
 			wp_enqueue_script('bootstrap-rating', THEME_DIR . '/assets/js/bootstrap-rating.js', 'jquery', '', true);
 		}
-		wp_enqueue_script('droppin', THEME_DIR. '/assets/js/drop-pin.js', 'jquery', '', true);	
+		wp_enqueue_script('droppin', THEME_DIR. '/assets/js/drop-pin.js', 'jquery', '', true);
 		if(is_singular('listing')){
 			wp_enqueue_script('singlemap', THEME_DIR. '/assets/js/singlepostmap.js', 'jquery', '', true);
 			wp_enqueue_script('socialshare', THEME_DIR . '/assets/js/social-share.js', 'jquery', '', true);
@@ -302,28 +304,28 @@
 		//if(is_archive()){
 			wp_enqueue_script('bootstrapsliderjs', THEME_DIR . '/assets/lib/bootstrap/js/bootstrap-slider.js', 'jquery', '', true);
 		//}
-		wp_enqueue_script('Main', THEME_DIR. '/assets/js/main.js', 'jquery', '', true);	
-		
+		wp_enqueue_script('Main', THEME_DIR. '/assets/js/main.js', 'jquery', '', true);
+
 		wp_register_script( 'lp-icons-colors', THEME_DIR. '/assets/js/lp-iconcolor.js' , 'jquery', '', true );
 		wp_enqueue_script( 'lp-icons-colors' );
-		
-		
+
+
 		if ( is_singular('post') && comments_open() ) wp_enqueue_script( 'comment-reply' );
-		 
+
 
 	}
-	
+
 	/* ============== ListingPro Stripe JS ============ */
 	add_filter( 'wp_enqueue_scripts', 'listingpro_stripeJsfile', 0 );
 	if(!function_exists('listingpro_stripeJsfile')){
 		function listingpro_stripeJsfile(){
 
 				wp_enqueue_script('stripejs', THEME_DIR . '/assets/js/checkout.js', 'jquery', '', false);
-			
+
 		}
 	}
-	
-	
+
+
 
 
 	/* ============== ListingPro Options ============ */
@@ -331,27 +333,27 @@
 	if ( !isset( $listingpro_options ) && file_exists( dirname( __FILE__ ) . '/include/options-config.php' ) ) {
 		require_once( dirname( __FILE__ ) . '/include/options-config.php' );
 	}
-	
-	
-	
+
+
+
 	/* ============== ListingPro Load media ============ */
 	if ( ! function_exists( 'listingpro_load_media' ) ) {
 		function listingpro_load_media() {
 		  wp_enqueue_media();
 		}
-		
-	}	
+
+	}
 	add_action( 'admin_enqueue_scripts', 'listingpro_load_media' );
-	
+
 		if ( ! function_exists( 'listingpro_admin_css' ) ) {
 			function listingpro_admin_css() {
 			  wp_enqueue_style('adminpages-css', THEME_DIR . '/assets/css/admin-style.css');
 			}
-			
-		}	
+
+		}
 		add_action( 'admin_enqueue_scripts', 'listingpro_admin_css' );
-	
-	
+
+
 	/* ============== ListingPro Author Contact meta ============ */
 	if ( ! function_exists( 'listingpro_author_meta' ) ) {
 		function listingpro_author_meta( $contactmethods ) {
@@ -367,50 +369,50 @@
 			$contactmethods['instagram'] = 'Instagram';
 			$contactmethods['twitter'] = 'Twitter';
 			$contactmethods['pinterest'] = 'Pinterest';
-		 
+
 			return $contactmethods;
-			
+
 		}
 		add_filter('user_contactmethods','listingpro_author_meta',10,1);
-	}	
-	
-	
-	
+	}
 
-	
+
+
+
+
 	/* ============== ListingPro User avatar URL ============ */
-	
+
 	if ( ! function_exists( 'listingpro_get_avatar_url' ) ) {
-		
+
 		function listingpro_get_avatar_url($author_id, $size){
 			$get_avatar = get_avatar( $author_id, $size );
 			preg_match("/src='(.*?)'/i", $get_avatar, $matches);
 			return ( $matches[1] );
 		}
-	
+
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	/* ============== ListingPro Author image ============ */
-	
+
 	if (!function_exists('listingpro_author_image')) {
 
 		function listingpro_author_image() {
-							 
+
 			if(is_user_logged_in()){
-				
+
 				$current_user = wp_get_current_user();
-	
-				$author_avatar_url = get_user_meta($current_user->ID, "listingpro_author_img_url", true); 
+
+				$author_avatar_url = get_user_meta($current_user->ID, "listingpro_author_img_url", true);
 
 				if(!empty($author_avatar_url)) {
 
 					$avatar =  $author_avatar_url;
 
-				} else { 			
+				} else {
 
 					$avatar_url = listingpro_get_avatar_url ( $current_user->ID, $size = '94' );
 					$avatar =  $avatar_url;
@@ -418,29 +420,29 @@
 				}
 			}
 
-				 
+
 			return $avatar;
-			
+
 		}
 
 	}
-	
-	
+
+
 	/* ============== ListingPro Single Author image ============ */
-	
+
 	if (!function_exists('listingpro_single_author_image')) {
 
 		function listingpro_single_author_image() {
-							 
+
 			if(is_single()){
-				
-				$author_avatar_url = get_user_meta(get_the_author_meta('ID'), "listingpro_author_img_url", true); 
+
+				$author_avatar_url = get_user_meta(get_the_author_meta('ID'), "listingpro_author_img_url", true);
 
 				if(!empty($author_avatar_url)) {
 
 					$avatar =  $author_avatar_url;
 
-				} else { 			
+				} else {
 
 					$avatar_url = listingpro_get_avatar_url ( get_the_author_meta('ID'), $size = '94' );
 					$avatar =  $avatar_url;
@@ -448,24 +450,24 @@
 				}
 			}
 
-				 
+
 			return $avatar;
-			
+
 		}
 
 	}
-	
-	
-	
-	
+
+
+
+
 	/* ============== ListingPro Subscriber can upload media ============ */
-	
+
 	if ( ! function_exists( 'listingpro_subscriber_capabilities' ) ) {
-		
+
 		if ( current_user_can('subscriber')) {
 			add_action('init', 'listingpro_subscriber_capabilities');
 		}
-		
+
 		function listingpro_subscriber_capabilities() {
 			//if (!is_admin()) {
 			$contributor = get_role('subscriber');
@@ -475,17 +477,17 @@
 			$contributor->add_cap('assign_list-tags');
 			$contributor->add_cap('assign_listing-category');
 			$contributor->add_cap('assign_features');
-			
+
 			  show_admin_bar(false);
-		
+
 			//}
 		}
-		
+
 	}
 	if ( ! function_exists( 'listingpro_admin_capabilities' ) ) {
-		
+
 		add_action('init', 'listingpro_admin_capabilities');
-		
+
 		function listingpro_admin_capabilities() {
 			$contributor = get_role('administrator');
 			$contributor->add_cap('assign_location');
@@ -493,18 +495,18 @@
 			$contributor->add_cap('assign_listing-category');
 			$contributor->add_cap('assign_features');
 		}
-		
+
 	}
-	
-	
+
+
 	if( !function_exists('listingpro_vcSetAsTheme') ) {
 		add_action('vc_before_init', 'listingpro_vcSetAsTheme');
 		function listingpro_vcSetAsTheme()
 		{
 			vc_set_as_theme($disable_updater = false);
 		}
-	}  
-	
+	}
+
 	/* ============== ListingPro Block admin acccess ============ */
 	if ( !function_exists( 'listingpro_block_admin_access' ) ) {
 
@@ -520,11 +522,11 @@
 		}
 
 	}
-	
-	
-	
+
+
+
 	/* ============== ListingPro Media Uploader ============ */
-	
+
 	if ( ! function_exists( 'listingpro_add_media_upload_scripts' ) ) {
 
 		function listingpro_add_media_upload_scripts() {
@@ -534,12 +536,12 @@
 			wp_enqueue_media();
 		}
 		//add_action('wp_enqueue_scripts', 'listingpro_add_media_upload_scripts');
-		
+
 	}
 
 
 	/* ============== ListingPro Search Form ============ */
-	
+
 	if ( ! function_exists( 'listingpro_search_form' ) ) {
 
 		function listingpro_search_form() {
@@ -555,10 +557,10 @@
 	}
 
 	add_filter('get_search_form', 'listingpro_search_form');
-	
-	
+
+
 	/* ============== ListingPro Favicon ============ */
-	
+
 	if ( ! function_exists( 'listingpro_favicon' ) ) {
 
 		function listingpro_favicon() {
@@ -566,32 +568,32 @@
 		   if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
 
 			   if($listingpro_options['theme_favicon'] != ''){
-					
+
 					echo '<link rel="shortcut icon" href="' . wp_kses_post($listingpro_options['theme_favicon']['url']) . '"/>';
 				} else {
 					echo '<link rel="shortcut icon" href="' . THEME_DIR . '/assets/img/favicon.ico"/>';
 				}
 			}
-			
+
 		}
 	}
 
-	
+
 	/* ============== ListingPro Title ============ */
 
 	if ( ! function_exists( 'listingpro_title' ) ) {
-		
+
 		function listingpro_title() {
 		?>
 		<title><?php wp_title( '|', true, 'right' ); ?></title>
 		<?php
 		}
 		add_action( 'wp_head', 'listingpro_title' );
-		
+
 	}
-	
+
 	/* ============== ListingPro Top bar menu ============ */
-	
+
 	if (!function_exists('listingpro_top_bar_menu')) {
 
 		function listingpro_top_bar_menu() {
@@ -611,9 +613,9 @@
 		}
 
 	}
-	
+
 	/* ============== ListingPro Primary menu ============ */
-	
+
 	if (!function_exists('listingpro_primary_menu')) {
 
 		function listingpro_primary_menu() {
@@ -623,7 +625,7 @@
 				'container'       => 'div',
 				'menu_class'      => '',
 				'menu_id'         => '',
-				'echo'            => true,				
+				'echo'            => true,
 				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			);
 			if ( has_nav_menu( 'primary' ) ) {
@@ -632,10 +634,10 @@
 		}
 
 	}
-	
-	
+
+
 	/* ============== ListingPro Inner pages menu ============ */
-	
+
 	if (!function_exists('listingpro_inner_menu')) {
 
 		function listingpro_inner_menu() {
@@ -645,7 +647,7 @@
 				'container'       => 'div',
 				'menu_class'      => '',
 				'menu_id'         => '',
-				'echo'            => true,				
+				'echo'            => true,
 				'items_wrap'      => '<ul id="%1$s" class="inner_menu %2$s">%3$s</ul>',
 			);
 			if ( has_nav_menu( 'primary_inner' ) ) {
@@ -654,9 +656,9 @@
 		}
 
 	}
-	
+
 	/* ============== ListingPro Footer menu ============ */
-	
+
 	if (!function_exists('listingpro_footer_menu')) {
 
 		function listingpro_footer_menu() {
@@ -677,7 +679,7 @@
 		}
 
 	}
-	
+
 	/* ==============start add by sajid ============ */
 	if (!function_exists('listingpro_footer_menu_app')) {
 
@@ -698,11 +700,11 @@
 			}
 		}
 	}
-	
+
 	/* ==============end add by sajid ============ */
-	
+
 	/* ============== ListingPro Mobile menu ============ */
-	
+
 	if (!function_exists('listingpro_mobile_menu')) {
 
 		function listingpro_mobile_menu() {
@@ -723,7 +725,7 @@
 		}
 
 	}
-	
+
 	/* ============== ListingPro Default sidebar ============ */
 
 	if (!function_exists('listingpro_sidebar')) {
@@ -734,7 +736,7 @@
 			if(isset($listingpro_options['footer_style'])){
 				$footer_style = $listingpro_options['footer_style'];
 			}
-			
+
 			register_sidebar(array(
 				'name' => 'Default sidebar',
 				'id' => 'default-sidebar',
@@ -752,7 +754,7 @@
 				'after_title' => '</h2>',
 			));
 			/* ============== shaoib start ============ */
-			
+
 			if($footer_style == 'footer2'){
 					register_sidebar(array(
 						'name' => esc_html__("Footer sidebar widget ", "listingpro"),
@@ -762,54 +764,54 @@
 						'after_widget' => '</aside>',
 						'before_title' => '<div class="widget-title"><h2>',
 						'after_title' => '</h2></div>',
-						
+
 					));
-					
+
 			}
-			/* ============== shoaib end ============ */	
-				
+			/* ============== shoaib end ============ */
+
 		}
 
 	}
 	add_action('widgets_init', 'listingpro_sidebar');
-	
+
 	/* ============== ListingPro Primary Logo ============ */
-	
+
 	if (!function_exists('listingpro_primary_logo')) {
 
 		function listingpro_primary_logo() {
-			
+
 			global $listingpro_options;
 			$lp_logo = $listingpro_options['primary_logo']['url'];
 			if(!empty($lp_logo)){
 				echo '<img src="'.$lp_logo.'" alt="" />';
 			}
-			
+
 		}
 
 	}
-	
-	
+
+
 	/* ============== ListingPro Seconday Logo ============ */
-	
+
 	if (!function_exists('listingpro_secondary_logo')) {
 
 		function listingpro_secondary_logo() {
-			
+
 			global $listingpro_options;
 			$lp_logo2 = $listingpro_options['seconday_logo']['url'];
 			if(!empty($lp_logo2)){
 				echo '<img src="'.$lp_logo2.'" alt="" />';
 			}
-			
+
 		}
 
 	}
-	
-	
+
+
 
 	/* ============== ListingPro URL Settings ============ */
-	
+
 	if (!function_exists('listingpro_url')) {
 
 		function listingpro_url($link) {
@@ -827,7 +829,7 @@
 				}else{
 					$url = $listingpro_options[$link];
 				}
-				
+
 				return $url;
 			}else{
 				return false;
@@ -835,29 +837,29 @@
 		}
 
 	}
-	
-	
-	
+
+
+
 	/* ============== ListingPro translation ============ */
-	
+
 	if (!function_exists('listingpro_translation')) {
 
 		function listingpro_translation($word) {
-			
-			
+
+
 				return $word;
-					
+
 		}
 	}
 
 
-	
+
 	/* ============== ListingPro filter page pagination ============ */
-	
+
 	if (!function_exists('listingpro_load_more_filter')) {
 
 		function listingpro_load_more_filter($my_query, $pageno=null, $sKeyword='') {
-			
+
 			$output = '';
 			$pages = '';
 			$pages = $my_query->max_num_pages;
@@ -870,9 +872,9 @@
 				$flagAt2 = 7;
 				$flagOn = 0;
 				while($pages > 0){
-					
+
 					if(isset($pageno) && !empty($pageno)){
-						
+
 						if(!empty($totalpages) && $totalpages<7){
 							if($pageno==$n){
 								$output .='<li><span data-skeyword="'.$sKeyword.'" data-pageurl="'.$n.'"  class="page-numbers haspaglink current">'.$n.'</span></li>';
@@ -891,49 +893,49 @@
 								if($n<=4){
 									$output .='<li><span data-skeyword="'.$sKeyword.'" data-pageurl="'.$n.'"  class="page-numbers haspaglink">'.$n.'</span></li>';
 								}
-								
+
 								elseif($n > 4 && $flagAt2==7){
 									$output .='<li><span data-skeyword="'.$sKeyword.'" data-pageurl="'.$n.'"  class="page-numbers haspaglink">'.$n.'</span></li>';
 									$output .='<li><span data-skeyword="'.$sKeyword.'"  class="page-numbers">...</span></li>';
 									$flagAt2=1;
-									
+
 								}
 								elseif($n > 4  && $n >=$flagOn && $n<$flagOn2){
 									$output .='<li><span data-skeyword="'.$sKeyword.'" data-pageurl="'.$n.'"  class="page-numbers haspaglink">'.$n.'</span></li>';
-									
+
 								}
 								elseif($n == $totalpages){
 									$output .='<li><span data-skeyword="'.$sKeyword.'" class="page-numbers">...</span></li>';
 									$output .='<li><span data-skeyword="'.$sKeyword.'" data-pageurl="'.$n.'"  class="page-numbers haspaglink">'.$n.'</span></li>';
-									
+
 								}
-								
+
 							}
-							
+
 						}
-						
-						
+
+
 					}
 					else{
-						
+
 						if($n==1){
 							$output .='<li><span data-pageurl="'.$n.'"  class="page-numbers  haspaglink current">'.$n.'</span></li>';
 						}
 						else if( $n<7 ){
 							$output .='<li><span data-pageurl="'.$n.'"  class="page-numbers haspaglink">'.$n.'</span></li>';
 						}
-						
+
 						else if( $n>7 && $pages>7 && $flagAt==7 ){
 							$output .='<li><span  class="page-numbers">...</span></li>';
 							$flagAt = 1;
 						}
-						
+
 						else if( $n>7 && $pages<7 && $flagAt==1 ){
 							$output .='<li><span data-pageurl="'.$n.'"  class="page-numbers haspaglink">'.$n.'</span></li>';
 						}
-						
+
 					}
-					
+
 					$pages--;
 					$n++;
 					$output .='</li>';
@@ -941,19 +943,19 @@
 				$output .='</ul>';
 				$output .='</div>';
 			}
-			
-			
+
+
 			return $output;
 		}
-		
+
 	}
-	
-	
+
+
 	/* ============== ListingPro Infinite load ============ */
-	
+
 	if (!function_exists('listingpro_load_more')) {
 
-		function listingpro_load_more($wp_query) {		
+		function listingpro_load_more($wp_query) {
 			$pages = $wp_query->max_num_pages;
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
@@ -983,19 +985,19 @@
 				echo "</div>";
 			}
 		}
-		
+
 	}
-	
-	
+
+
 	/* ============== ListingPro Icon8 base64 Icons ============ */
-	
+
 	if (!function_exists('listingpro_icons')) {
 
 		function listingpro_icons($icons) {
 			$colors = new listingproIcons();
 			$icon = '';
 			if($icons != ''){
-				$iconsrc = $colors->listingpro_icon($icons);	
+				$iconsrc = $colors->listingpro_icon($icons);
 				$icon = '<img class="icon icons8-'.$icons.'" src="'.$iconsrc.'" alt="'.$icons.'">';
 				return $icon;
 			}else{
@@ -1003,25 +1005,25 @@
 			}
 		}
 	}
-	
 
-	
+
+
 	/* ============== ListingPro Search Filter ============ */
-	
+
 	if (!function_exists('listingpro_searchFilter')) {
-		
-		
+
+
 		function listingpro_searchFilter() {
 			global $wp_post_types;
 			$wp_post_types['page']->exclude_from_search = true;
 		}
 		add_action('init', 'listingpro_searchFilter');
-		
+
 	}
-	
+
 
 	/* ============== ListingPro Price Dynesty Text============ */
-	
+
 	if (!function_exists('listingpro_price_dynesty_text')) {
 		function listingpro_price_dynesty_text($postid) {
 			$output = null;
@@ -1031,7 +1033,7 @@
 				$listingprice = listing_get_metabox_by_ID('list_price', $postid);
 				if(!empty($priceRange ) && !empty($listingprice )){
 					$output .='
-					<span class="element-price-range list-style-none">'; 
+					<span class="element-price-range list-style-none">';
 						$dollars = '';
 						$tip = '';
 						if( $priceRange == 'notsay' ){
@@ -1058,22 +1060,22 @@
 						$lp_priceSymbol = $listingpro_options['listing_pricerange_symbol'];
 						if( $priceRange != 'notsay' ){
 							$output .= '<span class="grayscale simptip-position-top simptip-movable" data-tooltip="'.$tip.'" title="'.$tip.'">';
-							for ($i=0; $i < $dollars ; $i++) { 
+							for ($i=0; $i < $dollars ; $i++) {
 								$output .= $lp_priceSymbol;
 							}
 							$output .= '</span>';
-							
+
 						}
 						$output .= '
 					</span>';
 				}
 			}
 			return $output;
-		}		
+		}
 	}
-	
+
 	/* ============== ListingPro Price Dynesty ============ */
-	
+
 	if (!function_exists('listingpro_price_dynesty')) {
 		function listingpro_price_dynesty($postid) {
 			if(!empty($postid)){
@@ -1086,7 +1088,7 @@
 						<ul class="list-style-none post-price-row line-height-16">
 					<?php if( $priceRange != 'notsay' && !empty($priceRange) ){ ?>
 							<li class="grayscale-dollar">
-								<?php 
+								<?php
 									$dollars = '';
 									$tip = '';
 									if( $priceRange == 'notsay' ){
@@ -1109,13 +1111,13 @@
 										$dollars = '4';
 										$tip = esc_html__('Ultra High End', 'listingpro');
 									}
-									
+
 									global $listingpro_options;
 									$lp_priceSymbol = $listingpro_options['listing_pricerange_symbol'];
-									
+
 										echo '<span class="simptip-position-top simptip-movable" data-tooltip="'.$tip.'" title="'.$tip.'">';
 											echo '<span class="active">';
-											for ($i=0; $i < $dollars ; $i++) { 
+											for ($i=0; $i < $dollars ; $i++) {
 												echo wp_kses_post( $lp_priceSymbol );
 											}
 											echo '</span>';
@@ -1127,10 +1129,10 @@
 											}
 											echo '</span>';
 										echo '</span>';
-									
+
 								?>
 							</li>
-							<?php 
+							<?php
 							}
 							if(!empty($listingpTo ) || !empty($listingprice )){
 							?>
@@ -1140,7 +1142,7 @@
 										<?php echo esc_html__('Price Range', 'listingpro'); ?>
 									</span>
 									<?php
-									
+
 										if(!empty($listingprice)){
 											echo esc_html($listingprice);
 										}
@@ -1148,12 +1150,12 @@
 											echo ' - ';
 											echo esc_html($listingpTo);
 										}
-										
-										
+
+
 									?>
 								</span>
 							</li>
-							<?php 
+							<?php
 								}
 							?>
 						</ul>
@@ -1161,15 +1163,15 @@
 					<?php
 				}
 			}
-		}		
+		}
 	}
-	
+
 	/* ============== ListingPro email and mailer filter ============ */
 	add_filter('wp_mail_from', 'listingpro_mail_from');
 	add_filter('wp_mail_from_name', 'listingpro_mail_from_name');
-	if( !function_exists('listingpro_mail_from') ){ 
+	if( !function_exists('listingpro_mail_from') ){
 		function listingpro_mail_from($old) {
-			
+
 			$mailFrom = null;
 			if( class_exists( 'Redux' ) ) {
 				global $listingpro_options;
@@ -1183,7 +1185,7 @@
 	}
 	if( !function_exists('listingpro_mail_from_name') ){
 		function listingpro_mail_from_name($old) {
-			
+
 			$mailFromName = null;
 			if( class_exists( 'Redux' ) ) {
 				global $listingpro_options;
@@ -1195,7 +1197,7 @@
 			return $mailFromName;
 		}
 	}
-	
+
 	/* ============== email html support ============ */
 	if( !function_exists('listingpro_set_content_type') ){
 		add_filter( 'wp_mail_content_type', 'listingpro_set_content_type' );
@@ -1203,9 +1205,9 @@
 			return 'text/html';
 		}
 	}
-	
+
 	/* ==================textarea to editor============= */
-	
+
 	if( !function_exists('get_textarea_as_editor') ){
 		function get_textarea_as_editor($editor_id, $editor_name, $pcontent){
 			$content = $pcontent;
@@ -1238,9 +1240,9 @@
 
 		}
 	}
-	
+
 	/* ================= button in editor=========== */
-	
+
 	add_filter( 'tiny_mce_before_init', 'lp_format_TinyMCE' );
 	if( !function_exists('lp_format_TinyMCE') ){
         function lp_format_TinyMCE( $in ) {
@@ -1258,9 +1260,9 @@
 
         }
     }
-	
-	/* ============== Listingpro term Exist ============ */	
-	
+
+	/* ============== Listingpro term Exist ============ */
+
 		if(!function_exists('listingpro_term_exist')){
 			function listingpro_term_exist($name,$taxonomy){
 				$term = term_exists($name, $taxonomy);
@@ -1271,11 +1273,11 @@
 				}
 			}
 		}
-	
-	
-	
-	/* ============== Listingpro add new term ============ */	
-	
+
+
+
+	/* ============== Listingpro add new term ============ */
+
 		if(!function_exists('listingpro_insert_term')){
 			function listingpro_insert_term($name,$taxonomy){
 				if ( ! taxonomy_exists($taxonomy) ){
@@ -1292,16 +1294,16 @@
 				}
 			}
 		}
-	
-	
-	
-	/* ============== Listingpro compaigns ============ */	
+
+
+
+	/* ============== Listingpro compaigns ============ */
 	if(!function_exists('listingpro_get_campaigns_listing')){
 		function listingpro_get_campaigns_listing( $campaign_type, $IDSonly, $taxQuery=array(), $searchQuery=array(),$priceQuery=array(),$s=null, $noOfListings = null, $posts_in = null ){
-			
+
 			global $listingpro_options;
 			$listing_mobile_view = $listingpro_options['single_listing_mobile_view'];
-			
+
 			$postsidsin;
 			if(!empty($posts_in)){
 				$postsidsin = "'post__in' => ".$posts_in."";
@@ -1314,8 +1316,8 @@
 			'lp_detail_page_ads',
 			'lp_top_in_search_page_ads'
 			);
-			
-			global $listingpro_options;	
+
+			global $listingpro_options;
 			$listing_style = '';
 			$listing_style = $listingpro_options['listing_style'];
 			$postNumber = '';
@@ -1326,7 +1328,7 @@
 				else{
 					$postNumber = $noOfListings;
 				}
-				
+
 			}else{
 				if(empty($noOfListings)){
 					$postNumber = 3;
@@ -1335,11 +1337,11 @@
 					$postNumber = $noOfListings;
 				}
 			}
-			
-			
+
+
 			if( !empty($campaign_type) ){
 				if( in_array($campaign_type, $adsType, true) ){
-					
+
 					$TxQuery = array();
 					if( !empty( $taxQuery ) && is_array($taxQuery)){
 						$TxQuery = $taxQuery;
@@ -1399,7 +1401,7 @@
 							$the_query->the_post();
 							if( $IDSonly==TRUE ){
 								$idsArray[] =  get_the_ID();
-								
+
 							}
 							else{
 								if(is_singular('listing') ){
@@ -1426,9 +1428,9 @@
                                         get_template_part( 'listing-loop' );
                                     }
 								}
-								
+
 							}
-							
+
 							wp_reset_postdata();
 						}
 						if( $IDSonly==TRUE ){
@@ -1436,18 +1438,18 @@
 								return $idsArray;
 							}
 						}
-				
+
 					}
-			
-			
-			
+
+
+
 				}
 			}
-			
-			
+
+
 		}
 	}
-	/* ============== Listingpro Sharing ============ */	
+	/* ============== Listingpro Sharing ============ */
 	if(!function_exists('listingpro_sharing')){
 		function listingpro_sharing() {
 			?>
@@ -1503,8 +1505,8 @@
 			<?php
 		}
 	}
-	
-	
+
+
 	/* Post Views */
 
 if(!function_exists('getPostViews')){
@@ -1528,10 +1530,10 @@ if(!function_exists('getPostViews')){
 				return $count.esc_html__('0 View', 'listingpro');
 			}
 		}
-	    
+
 	}
 }
- 
+
 // function to count views.
 if(!function_exists('setPostViews')){
 	function setPostViews($postID) {
@@ -1578,7 +1580,7 @@ if(!function_exists('getAuthorPostsViews')){
 		$count = 0;
 		$current_user = wp_get_current_user();
 		$user_id = $current_user->ID;
-		
+
 		$args = array(
 			'post_type' => 'listing',
 			'author' => $user_id,
@@ -1608,7 +1610,7 @@ if(!function_exists('getAuthorTotalViews')){
 		$current_user = wp_get_current_user();
 		$user_id = $current_user->ID;
 		$review_ids = array();
-		
+
 		$args = array(
 			'post_type' => 'listing',
 			'author' => $user_id,
@@ -1621,16 +1623,16 @@ if(!function_exists('getAuthorTotalViews')){
 				$the_query->the_post();
 				$key = 'reviews_ids';
 				$review_idss = listing_get_metabox_by_ID($key ,get_the_ID());
-				
+
 				if( !empty($review_idss) ){
 					if (strpos($review_idss, ",") !== false) {
-						$review_ids = explode( ',', $review_idss );		
+						$review_ids = explode( ',', $review_idss );
 						$result = array_merge($result, $review_ids);
 					}
 					else{
 						$result[] = $review_idss;
 					}
-					
+
 				}
 			}
 			wp_reset_postdata();
@@ -1649,9 +1651,9 @@ if(!function_exists('getAllReviewsArray')){
 		$review_idss = '';
 		$current_user = wp_get_current_user();
 		$user_id = $current_user->ID;
-		
+
 		$postid = array();
-		
+
 		$args = array(
 			'post_type' => 'listing',
 			'author' => $user_id,
@@ -1663,20 +1665,20 @@ if(!function_exists('getAllReviewsArray')){
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
 				$key = 'reviews_ids';
-				
+
 				$review_idss = listing_get_metabox_by_ID($key ,get_the_ID());
-				
+
 				if( !empty($review_idss) ){
 					if (strpos($review_idss, ",") !== false) {
-						$review_ids = explode( ',', $review_idss );		
+						$review_ids = explode( ',', $review_idss );
 						$result = array_merge($result, $review_ids);
 					}
 					else{
 						$result[] = $review_idss;
 					}
-					
+
 				}
-				
+
 			}
 			//wp_reset_postdata();
 		}
@@ -1693,26 +1695,26 @@ if(!function_exists('get_ads_invoices_list')){
 		$prefix = '';
 		$prefix = $wpdb->prefix;
 		$table_name = $prefix.'listing_campaigns';
-		
+
 		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) {
-			
+
 			if( empty($userid)  && !empty($method) && !empty($status) && is_admin() ){
 				//return on admin side only
-				$results = $wpdb->get_results( 
-								$wpdb->prepare("SELECT * FROM {$prefix}listing_campaigns WHERE payment_method=%s AND status=%s", $method, $status) 
+				$results = $wpdb->get_results(
+								$wpdb->prepare("SELECT * FROM {$prefix}listing_campaigns WHERE payment_method=%s AND status=%s", $method, $status)
 							 );
 				return $results;
 			}
 			else if( !empty($userid) && isset($userid) && !empty($status)){
 				//return for all users by id
-				
-				$results = $wpdb->get_results( 
-								$wpdb->prepare("SELECT * FROM {$prefix}listing_campaigns WHERE user_id=%d AND status=%s", $userid, $status) 
+
+				$results = $wpdb->get_results(
+								$wpdb->prepare("SELECT * FROM {$prefix}listing_campaigns WHERE user_id=%d AND status=%s", $userid, $status)
 							 );
 				return $results;
-				
+
 			}
-			
+
 		}
 	}
 }
@@ -1723,12 +1725,12 @@ if(!function_exists('lp_delete_any_post')){
 add_action( 'before_delete_post', 'lp_delete_any_post' );
 	function lp_delete_any_post( $postid ){
 		global $post_type;
-		
+
 		if($post_type == 'listing'){
 			$listing_id = $postid;
 			$campaignID = listing_get_metabox_by_ID('campaign_id', $listing_id);
 			$get_reviews = listing_get_metabox_by_ID('reviews_ids', $listing_id);
-			
+
 			wp_delete_post($campaignID);
 			if(!empty($get_reviews)){
 				$reviewsArray = array();
@@ -1751,15 +1753,15 @@ add_action( 'before_delete_post', 'lp_delete_any_post' );
 					}
 				}
 			}
-			
-			
+
+
 		}
 		else if($post_type == 'lp-reviews'){
-			
+
 			$review_id = $postid;
 			$action = 'delete';
 			$listing_id = listing_get_metabox_by_ID('listing_id', $postid);
-			
+
 			listingpro_set_listing_ratings($review_id, $listing_id, '', $action);
 
 		}
@@ -1771,13 +1773,13 @@ add_action( 'before_delete_post', 'lp_delete_any_post' );
 					delete_post_meta( $listing_id, $type );
 				}
 			}
-			
+
 			listing_delete_metabox('campaign_id', $listing_id);
 			delete_post_meta( $listing_id, 'campaign_status' );
-			
+
 		}
-		
-		
+
+
 	}
 }
 
@@ -1836,10 +1838,10 @@ if(!function_exists('listingpro_pagination')){
 /* calculate average rate for listing */
 	if(!function_exists('lp_cal_listing_rate')){
 		function lp_cal_listing_rate($listing_id,$post_type = 'listing', $is_reviewcall = false){
-			
+
 			global $listingpro_options;
 			$reviewEnabled = $listingpro_options['lp_review_switch'];
-			
+
 			if($post_type == 'lp_review'){
 				$rating = listing_get_metabox_by_ID('rating' ,$listing_id);
 			}else{
@@ -1847,28 +1849,28 @@ if(!function_exists('listingpro_pagination')){
 			}
 			$ratingRes = '';
 			if(!empty($rating) && $rating > 0){
-				
+
 				if($rating < 1){
 					$ratingRes = '<span class="rate lp-rate-worst">'.$rating.'<sup>/ 5</sup></span>';
 				}
-				
+
 				else if($rating >=1 && $rating < 2){
 					$ratingRes = '<span class="rate lp-rate-bad">'.$rating.'<sup>/ 5</sup></span>';
 				}
-				
+
 				else if($rating >=2 && $rating < 3.5){
 					$ratingRes = '<span class="rate lp-rate-satisfactory">'.$rating.'<sup>/ 5</sup></span>';
 				}
-				
+
 				else if($rating >=3.5 && $rating <= 5){
 					$ratingRes = '<span class="rate lp-rate-good">'.$rating.'<sup>/ 5</sup></span>';
 				}
-				
+
 			}
 			else{
 				if (class_exists('ListingReviews')) {
 					if ( is_singular('listing') ){
-						
+
 						if($is_reviewcall==true){
 							$ratingRes = '';
 						}
@@ -1886,15 +1888,15 @@ if(!function_exists('listingpro_pagination')){
 						//$ratingRes = '<span class="no-review">'.esc_html__("0 Review", "listingpro").'</span>';
 					}
 				}
-				
+
 			}
-			
+
 			return $ratingRes;
-			
+
 		}
 	}
-	
-	
+
+
 	/* =============================================== cron-job for listing==================================== */
 	add_action( 'wp', 'lp_expire_listings' );
 	function lp_expire_listings() {
@@ -1930,7 +1932,7 @@ if(!function_exists('listingpro_pagination')){
 								AND DATEDIFF(NOW(), post_date) > %d";
 							$res = $wpdb->query($wpdb->prepare( $sql, $plan_duration ));
 							if($res!=false){
-								
+
 								if(!empty($plan_price) && is_numeric($plan_price)){
 									/* update in db table */
 									$update_data = array('status' => 'in progress');
@@ -1939,7 +1941,7 @@ if(!function_exists('listingpro_pagination')){
 									$wpdb->update($dbprefix.'listing_orders', $update_data, $where, $update_format);
 									/* update in db table */
 								}
-								
+
 								$campaign_status = get_post_meta($listing_id, 'campaign_status', true);
 								if(!empty($campaign_status)){
 									delete_post_meta( $listing_id, 'campaign_status');
@@ -1948,7 +1950,7 @@ if(!function_exists('listingpro_pagination')){
 								if(!empty($adID)){
 									wp_delete_post( $adID, true );
 								}
-								
+
 								$post_author_id = get_post_field( 'post_author', $listing_id );
 								$user = get_user_by( 'id', $post_author_id );
 								$useremail = $user->user_email;
@@ -1958,28 +1960,28 @@ if(!function_exists('listingpro_pagination')){
 								$listing_url = get_the_permalink($listing_id);
 								/* email to user */
 								$headers[] = 'Content-Type: text/html; charset=UTF-8';
-						
+
 								$u_mail_subject_a = '';
 								$u_mail_body_a = '';
 								$u_mail_subject = $listingpro_options['listingpro_subject_listing_expired'];
 								$u_mail_body = $listingpro_options['listingpro_listing_expired'];
-								
+
 								$u_mail_subject_a = lp_sprintf2("$u_mail_subject", array(
 									'website_url' => "$website_url",
 									'listing_title' => "$listing_title",
 									'listing_url' => "$listing_url",
 									'website_name' => "$website_name"
 								));
-								
+
 								$u_mail_body_a = lp_sprintf2("$u_mail_body", array(
 									'website_url' => "$website_url",
 									'listing_title' => "$listing_title",
 									'listing_url' => "$listing_url",
 									'website_name' => "$website_name"
 								));
-								
+
 								wp_mail( $useremail, $u_mail_subject_a, $u_mail_body_a, $headers);
-								
+
 							}
 						}
 					}
@@ -1987,9 +1989,9 @@ if(!function_exists('listingpro_pagination')){
 			}
 		}
 	}
-		
+
 	/* =============================================== cron-job for ads ==================================== */
-	
+
 	add_action( 'wp', 'lp_expire_listings_ads' );
 	function lp_expire_listings_ads() {
 		if (! wp_next_scheduled ( 'lp_daily_cron_listing_ads' )) {
@@ -2020,7 +2022,7 @@ if(!function_exists('listingpro_pagination')){
 							delete_post_meta( $ads_listing, 'campaign_status');
 						}
 						wp_delete_post( $adID, true );
-						
+
 						$listing_id = $ads_listing;
 						$post_author_id = get_post_field( 'post_author', $listing_id );
 						$user = get_user_by( 'id', $post_author_id );
@@ -2031,37 +2033,37 @@ if(!function_exists('listingpro_pagination')){
 						$listing_url = get_the_permalink($listing_id);
 						/* email to user */
 						$headers[] = 'Content-Type: text/html; charset=UTF-8';
-				
+
 						$u_mail_subject_a = '';
 						$u_mail_body_a = '';
 						$u_mail_subject = $listingpro_options['listingpro_subject_ads_expired'];
 						$u_mail_body = $listingpro_options['listingpro_ad_campaign_expired'];
-						
+
 						$u_mail_subject_a = lp_sprintf2("$u_mail_subject", array(
 							'website_url' => "$website_url",
 							'listing_title' => "$listing_title",
 							'listing_url' => "$listing_url",
 							'website_name' => "$website_name"
 						));
-						
+
 						$u_mail_body_a = lp_sprintf2("$u_mail_body", array(
 							'website_url' => "$website_url",
 							'listing_title' => "$listing_title",
 							'listing_url' => "$listing_url",
 							'website_name' => "$website_name"
 						));
-						
+
 						wp_mail( $useremail, $u_mail_subject_a, $u_mail_body_a, $headers);
-						
+
 					}
-					
+
 				endwhile;
 			}
 		}
 	}
-	
+
 	/* =============================================== cron-job for recurring email ==================================== */
-	
+
 	add_action( 'wp', 'lp_payment_cron_alert_email' );
 	function lp_payment_cron_alert_email() {
 		if (! wp_next_scheduled ( 'lp_payments_cron_alets' )) {
@@ -2091,13 +2093,13 @@ if(!function_exists('listingpro_pagination')){
 					$listing_id = trim($listing_id);
 					$user_id = $data->user_id;
 					$user_id = trim($user_id);
-					
+
 					$plan_title = get_the_title($plan_id);
 					$listing_title = get_the_title($listing_id);
-					
+
 					$plan_price = get_post_meta($plan_id, 'plan_price', true);
 					$plan_time = get_post_meta($plan_id, 'plan_time', true);
-					
+
 					if(is_numeric($plan_time)){
 						$currentTime = date("Y-m-d");
 						$publishedTime = get_the_time('Y-m-d', $listing_id);
@@ -2105,18 +2107,18 @@ if(!function_exists('listingpro_pagination')){
 						$publishedTime = date_create($publishedTime);
 						$interval = date_diff($currentTime, $publishedTime);
 						/*2 days before plan end*/
-						$plan_time = (int)$plan_time - $lp_nofify; 
+						$plan_time = (int)$plan_time - $lp_nofify;
 						$daysDiff = $interval->format('%d');
 						if($daysDiff == $plan_time){
-							
+
 							$author_obj = get_user_by('id', $user_id);
 							$author_email = $author_obj->user_email;
 							$headers[] = 'Content-Type: text/html; charset=UTF-8';
-							
+
 							/* user email */
 							$subject = $listingpro_options['listingpro_subject_recurring_payment'];
 							$mail_content = $listingpro_options['listingpro_content_recurring_payment'];
-							
+
 							$formated_mail_content = lp_sprintf2("$mail_content", array(
 								'listing_title' => "$listing_title",
 								'plan_title' => "$plan_title",
@@ -2124,15 +2126,15 @@ if(!function_exists('listingpro_pagination')){
 								'plan_duration' => "$plan_time",
 								'notifybefore' => "$lp_nofify"
 							));
-							
+
 							wp_mail( $author_email, $subject, $formated_mail_content, $headers );
-							
+
 							/* admin email */
 							$admin_email = get_option('admin_email');
-							
+
 							$subjectadmin = $listingpro_options['listingpro_subject_recurring_payment_admin'];
 							$mail_content_admin = $listingpro_options['listingpro_content_recurring_payment_admin'];
-							
+
 							$formated_mail_content_admin = lp_sprintf2("$mail_content_admin", array(
 								'listing_title' => "$listing_title",
 								'plan_title' => "$plan_title",
@@ -2140,18 +2142,18 @@ if(!function_exists('listingpro_pagination')){
 								'plan_duration' => "$plan_time",
 								'notifybefore' => "$lp_nofify"
 							));
-							
+
 							wp_mail( $admin_email, $subjectadmin, $formated_mail_content_admin, $headers );
-							
+
 						}
 					}
-					
+
 				}
 			}
-			
+
 		}
 	}
-	
+
 	/* =============================================== cron-job for renew listing==================================== */
 	add_action( 'wp', 'lp_renew_recurring_listings' );
 	function lp_renew_recurring_listings() {
@@ -2163,9 +2165,9 @@ if(!function_exists('listingpro_pagination')){
 
 	if(!function_exists('lp_renew_this_listing')){
 		function lp_renew_this_listing(){
-			
+
 			global $wpdb, $listingpro_options;
-			
+
 			$wherecond = 'status = "success" AND summary="recurring"';
 			$recurringData = lp_get_data_from_db('listing_orders', '*', $wherecond);
 			if(!empty($recurringData)){
@@ -2175,10 +2177,10 @@ if(!function_exists('listingpro_pagination')){
 					$plan_id = trim($plan_id);
 					$listing_id = $data->post_id;
 					$listing_id = trim($listing_id);
-					
+
 					$plan_time = get_post_meta($plan_id, 'plan_time', true);
 					$plan_time = trim($plan_time);
-					
+
 					if(is_numeric($plan_time)){
 						$currentTime = date("Y-m-d");
 						$publishedTime = get_the_time('Y-m-d', $listing_id);
@@ -2187,7 +2189,7 @@ if(!function_exists('listingpro_pagination')){
 						$interval = date_diff($currentTime, $publishedTime);
 						$daysDiff = $interval->format('%d');
 						if($daysDiff >= $plan_time){
-							
+
 							/* 1- update listing publish time and post status */
 							$my_listing = array( 'ID' => $listing_id, 'post_date'  => date("Y-m-d H:i:s"), 'post_status'   => 'publish' );
 							wp_update_post( $my_listing );
@@ -2199,16 +2201,16 @@ if(!function_exists('listingpro_pagination')){
 							lp_update_data_in_db($table, $data, $where);
 						}
 					}
-					
+
 				}
 			}
-			
+
 		}
 	}
-	
+
 	/* =============================================== getClosestTimezone ==================================== */
-	
-	
+
+
 	function getClosestTimezone($lat, $lng)
 	  {
 		$diffs = array();
@@ -2222,7 +2224,7 @@ if(!function_exists('listingpro_pagination')){
 		  $diff = $diffLat + $diffLng;
 		  $diffs[$timezoneID] = $diff;
 		}
-		
+
 		$timezone = array_keys($diffs, min($diffs));
 		$timestamp = time();
 		date_default_timezone_set($timezone[0]);
@@ -2240,24 +2242,24 @@ if(!function_exists('listingpro_pagination')){
 	}
 	add_filter( 'style_loader_src', 'listingpro_remove_scripts_styles_version', 9999 );
 	add_filter( 'script_loader_src', 'listingpro_remove_scripts_styles_version', 9999 );
-	
+
 	/* js for invoice print */
 	if(!function_exists('lp_call_invoice_print_preview')){
 		function lp_call_invoice_print_preview(){
-		wp_enqueue_script('lp-print-invoice', THEME_DIR. '/assets/js/jQuery.print.js', 'jquery', '', true);		
+		wp_enqueue_script('lp-print-invoice', THEME_DIR. '/assets/js/jQuery.print.js', 'jquery', '', true);
 
 		}
 	}
 	add_action( 'lp_enqueue_print_script', 'lp_call_invoice_print_preview' );
-	
+
 	/* check for receptcha */
 	if(!function_exists('lp_check_receptcha')){
 		function lp_check_receptcha($type){
-				
+
 				global $listingpro_options;
 				if(isset($listingpro_options['lp_recaptcha_switch'])){
 					if($listingpro_options['lp_recaptcha_switch']==1){
-						
+
 						if(isset($listingpro_options["$type"])){
 							if($listingpro_options["$type"]==1){
 								return true;
@@ -2266,7 +2268,7 @@ if(!function_exists('listingpro_pagination')){
 						else{
 							return false;
 						}
-						
+
 					}
 					else{
 						return false;
@@ -2277,7 +2279,7 @@ if(!function_exists('listingpro_pagination')){
 				}
 		}
 	}
-	
+
 	/* check if package has purchased and has credit */
 	if(!function_exists('lp_check_package_has_credit')){
 		function lp_check_package_has_credit($plan_id){
@@ -2300,8 +2302,8 @@ if(!function_exists('listingpro_pagination')){
 			}
 		}
 	}
-	
-	
+
+
 	/* get used listing in package*/
 	if(!function_exists('lp_get_used_listing_in_package')){
 		function lp_get_used_listing_in_package($plan_id){
@@ -2322,7 +2324,7 @@ if(!function_exists('listingpro_pagination')){
 			return $used;
 		}
 	}
-	
+
 		/* check if listing is purchased and pending*/
 	if(!function_exists('lp_if_listing_in_purchased_package')){
 		function lp_if_listing_in_purchased_package($plan_id, $listing_id){
@@ -2353,11 +2355,11 @@ if(!function_exists('listingpro_pagination')){
 			else{
 				return false;
 			}
-			
+
 		}
 	}
 
-	
+
 	/* package update credit */
 	if(!function_exists('lp_update_credit_package')){
 		function lp_update_credit_package($listing_id){
@@ -2374,7 +2376,7 @@ if(!function_exists('listingpro_pagination')){
 			if( !empty($plan_type) && $plan_type=="Package" ){
 				$packageHasCredit = lp_check_package_has_credit($plan_id);
 				if(!empty($packageHasCredit) && $packageHasCredit=="1"){
-					
+
 					$results = $wpdb->get_results( "SELECT * FROM ".$dbprefix."listing_orders WHERE user_id ='$user_ID' AND plan_Id='$plan_id' AND plan_type='$plan_type' AND status = 'success'" );
 					if(!empty($results) && count($results)>0){
 						foreach ( $results as $info ) {
@@ -2387,7 +2389,7 @@ if(!function_exists('listingpro_pagination')){
 						else{
 							$listing_ids = $listing_id;
 						}
-						
+
 						if( $used < $posts_allowed_in_plan ){
 							$used++;
 							$update_data = array('post_id' => $listing_ids, 'used' => $used);
@@ -2395,9 +2397,9 @@ if(!function_exists('listingpro_pagination')){
 							$update_format = array('%s', '%s');
 							$wpdb->update($dbprefix.'listing_orders', $update_data, $where, $update_format);
 							$returnVal = true;
-							
+
 						}
-						
+
 						if( $used == $posts_allowed_in_plan ){
 							$update_data = array();
 							$update_data = array('status' => 'expired');
@@ -2405,17 +2407,17 @@ if(!function_exists('listingpro_pagination')){
 							$update_format = array('%s');
 							$wpdb->update($dbprefix.'listing_orders', $update_data, $where, $update_format);
 						}
-						
-						
+
+
 					}
-					
+
 				}
 			}
-			
+
 			return $returnVal;
 		}
 	}
-	
+
 	/* change plan button */
 	if(!function_exists('listingpro_change_plan_button')){
 		function listingpro_change_plan_button($post, $listing_id=''){
@@ -2443,7 +2445,7 @@ if(!function_exists('listingpro_pagination')){
 						}
 						$planPrice .='/<small>'. get_post_meta($plan_id, 'plan_package_type', true).'</small>';
 						$havePlan = "yes";
-						
+
 					}
 					else{
 						$planTitle = esc_html__('No Plan Assigned Yet', 'listingpro');
@@ -2474,15 +2476,15 @@ if(!function_exists('listingpro_pagination')){
 						}
 						$planPrice .='/<small>'. $planpkgtype.'</small>';
 						$havePlan = "yes";
-						
+
 					}
 					else{
 						$planTitle = esc_html__('No Plan Assigned Yet', 'listingpro');
 					}
 					$buttonCode = '<a href="#" class="lp-review-btn btn-second-hover text-center lp-change-plan-btn" data-toggle="modal" data-target="#modal-packages" data-listingstatus="'.$listing_status.'"  data-planprice="'.$planPrice.'"  data-haveplan="'.$havePlan.'" data-plantitle = "'.$planTitle.'" data-listingid="'.$listing_id.'" title="change">'.esc_html__('Change Plan', 'listingpro').'</a>';
 				}
-				
-				
+
+
 				global $listingpro_options;
 				$paidmode = $listingpro_options['enable_paid_submission'];
 				if( !empty($paidmode) && $paidmode=="yes" ){
@@ -2493,7 +2495,7 @@ if(!function_exists('listingpro_pagination')){
 			}
 		}
 	}
-	
+
 	/* listingpro get payments status of listing */
 	if(!function_exists('lp_get_payment_status_column')){
 		function lp_get_payment_status_column($listing_id){
@@ -2518,12 +2520,12 @@ if(!function_exists('listingpro_pagination')){
 							else{
 								$returnStatus = esc_html__('Free', 'listingpro');
 							}
-							
+
 						}
 						else{
 							$returnStatus = esc_html__('Free', 'listingpro');
 						}
-						
+
 					}
 				}
 				else{
@@ -2533,7 +2535,7 @@ if(!function_exists('listingpro_pagination')){
 			return $returnStatus;
 		}
 	}
-	
+
 	/* listingpro get payments status of listing by id */
 	if(!function_exists('lp_get_payment_status_by_ID')){
 		function lp_get_payment_status_by_ID($listing_id){
@@ -2558,12 +2560,12 @@ if(!function_exists('listingpro_pagination')){
 							else{
 								$returnStatus = 'free';
 							}
-							
+
 						}
 						else{
 							$returnStatus = 'free';
 						}
-						
+
 					}
 				}
 				else{
@@ -2573,8 +2575,8 @@ if(!function_exists('listingpro_pagination')){
 			return $returnStatus;
 		}
 	}
-	
-	
+
+
 	/* lp count user campaign by id */
 	if(!function_exists('lp_count_user_campaigns')){
 		function lp_count_user_campaigns($userid){
@@ -2599,18 +2601,18 @@ if(!function_exists('listingpro_pagination')){
 			return ($count) ? $count : 0;
 		}
 	}
- 
+
 	/* count no.of post by user id */
 	if(!function_exists('count_user_posts_by_status')){
 		function count_user_posts_by_status($post_type = 'listing',$post_status = 'publish',$user_id = 0, $userListing=false){
 			global $wpdb;
 			$count = 0;
 			if($userListing==false){
-			
+
 				$count = $wpdb->get_var(
-					$wpdb->prepare( 
+					$wpdb->prepare(
 					"
-					SELECT COUNT(ID) FROM $wpdb->posts 
+					SELECT COUNT(ID) FROM $wpdb->posts
 					WHERE post_status = %s
 					AND post_type = %s
 					AND post_author = %d",
@@ -2619,13 +2621,13 @@ if(!function_exists('listingpro_pagination')){
 					$user_id
 					)
 				);
-				
+
 			}
 			else{
 				$pid = $wpdb->get_col(
-					$wpdb->prepare( 
+					$wpdb->prepare(
 					"
-					SELECT ID FROM $wpdb->posts 
+					SELECT ID FROM $wpdb->posts
 					WHERE post_status = %s
 					AND post_type = %s
 					AND post_author = %d",
@@ -2644,24 +2646,24 @@ if(!function_exists('listingpro_pagination')){
 					}
 				}
 			}
-			
+
 			return ($count) ? $count : 0;
-			
+
 		}
 	}
-	
+
 	/* check user reviews by user id and listing id */
 	if(!function_exists('lp_check_user_reviews_for_listing')){
 		function lp_check_user_reviews_for_listing($uid, $listing_id){
 			$returnVal = false;
 			if(!empty($uid) && !empty($listing_id)){
-				
+
 				$args = array(
 					'post_type'  => 'lp-reviews',
 					'post_status'	=> 'publish',
 					'author' => $uid,
 					'posts_per_page' => -1,
-					
+
 			 	);
 			 	$query = new WP_Query( $args );
 				if ( $query->have_posts() ) {
@@ -2674,7 +2676,7 @@ if(!function_exists('listingpro_pagination')){
 					}
 					wp_reset_postdata();
 				}
-				
+
 			}
 			else{
 				$returnVal = false;
@@ -2682,7 +2684,7 @@ if(!function_exists('listingpro_pagination')){
 			return $returnVal;
 		}
 	}
-	
+
 	/* adding new user meta for new subscription */
 	if(!function_exists('lp_add_new_susbcription_meta')){
 		function lp_add_new_susbcription_meta($new_susbcription){
@@ -2700,7 +2702,7 @@ if(!function_exists('listingpro_pagination')){
 			}
 		}
 	}
-	
+
 	/* cancel subscription from stripe */
 	if(!function_exists('lp_cancel_stripe_subscription')){
 		function lp_cancel_stripe_subscription($listing_id, $plan_id){
@@ -2709,7 +2711,7 @@ if(!function_exists('listingpro_pagination')){
 				require_once THEME_PATH . '/include/stripe/stripe-php/init.php';
 				$secritKey = $listingpro_options['stripe_secrit_key'];
 				\Stripe\Stripe::setApiKey("$secritKey");
-				
+
 				$uid = get_current_user_id();
 				$userSubscriptions = get_user_meta($uid, 'listingpro_user_sbscr', true);
 				if(!empty($userSubscriptions)){
@@ -2725,7 +2727,7 @@ if(!function_exists('listingpro_pagination')){
 						}
 					}
 				}
-				
+
 				/* update metabox */
 				if(!empty($userSubscriptions)){
 					update_user_meta($uid, 'listingpro_user_sbscr', $userSubscriptions);
@@ -2733,11 +2735,11 @@ if(!function_exists('listingpro_pagination')){
 				else{
 					delete_user_meta($uid, 'listingpro_user_sbscr');
 				}
-				
+
 			}
 		}
 	}
-	
+
 	/* remove trash ads permanently */
 	if(!function_exists('listingpro_trash_ads_delete')){
 		function listingpro_trash_ads_delete($post_id) {
@@ -2746,14 +2748,14 @@ if(!function_exists('listingpro_pagination')){
 				wp_delete_post( $post_id, true );
 			}
 		}
-	}	
+	}
 	add_action('wp_trash_post', 'listingpro_trash_ads_delete');
-	
-	
-	
+
+
+
 	/* get distance between co-ordinates */
 	if(!function_exists('GetDrivingDistance')){
-		
+
 		function GetDrivingDistance($latitudeFrom,$latitudeTo, $longitudeFrom,$longitudeTo, $unit){
 			$unit = strtoupper($unit);
 			$theta = $longitudeFrom - $longitudeTo;
@@ -2769,13 +2771,13 @@ if(!function_exists('listingpro_pagination')){
 				  $dist = round($miles, 1);
 				  return array('distance' => $dist);
 			  }
-			
 
-			
+
+
 		}
-		
+
 	}
-	
+
 	/* get lat and long from address and set for listing */
 	if(!function_exists('lp_get_lat_long_from_address')){
 		function lp_get_lat_long_from_address($address, $listing_id){
@@ -2791,11 +2793,11 @@ if(!function_exists('listingpro_pagination')){
 					curl_setopt($ch, CURLOPT_HEADER, 0);
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 					curl_setopt($ch, CURLOPT_URL, $url);
-					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);       
+					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
 
 					$data = curl_exec($ch);
 					curl_close($ch);
-					
+
 					//$json = json_decode($json);
 					$json = json_decode($data);
 					if(!empty($json)){
@@ -2807,12 +2809,12 @@ if(!function_exists('listingpro_pagination')){
 							listing_set_metabox('longitude', $long, $listing_id);
 						}
 					}
-					
+
 				}
 			}
 		}
 	}
-	
+
 	/* hide activatio notice vc */
 	add_action('admin_head', 'lp_hide_vc_notification_css');
 	if(!function_exists('lp_hide_vc_notification_css')){
@@ -2820,7 +2822,7 @@ if(!function_exists('listingpro_pagination')){
 			echo '<style>#vc_license-activation-notice { display: none !important; }</style>';
 		}
 	}
-	
+
 	/* ==============start add by sajid ============ */
 	add_filter('body_class', 'listing_view_class');
 	if(!function_exists('listing_view_class')){
@@ -2839,9 +2841,9 @@ if(!function_exists('listingpro_pagination')){
 			return $classes;
 		}
 	}
-	
+
 	/* ========listingpro_footer_menu_app======== */
-	
+
 	if (!function_exists('listingpro_footer_menu_app')) {
 		function listingpro_footer_menu_app() {
 			$defaults = array(
@@ -2860,17 +2862,17 @@ if(!function_exists('listingpro_pagination')){
 			}
 		}
 	}
-	
+
 	/* ==============end add by sajid ============ */
-	
-	
+
+
 /* ===========================listingpro check plugin version======================== */
 if(!function_exists('lp_notice_plugin_version')){
 	function lp_notice_plugin_version() {
-		
+
 		$lp_theme = wp_get_theme();
 		if($lp_theme=="Listingpro"){
-			$themeVersion = $lp_theme->Version; 
+			$themeVersion = $lp_theme->Version;
 			$lpallPlugins = get_plugins();
 			if(class_exists('ListingproPlugin')){
 				$listpro_plugin = $lpallPlugins['listingpro-plugin/plugin.php'];
@@ -2879,34 +2881,34 @@ if(!function_exists('lp_notice_plugin_version')){
 					if($themeVersion != $pluginVersion){
 						$class = 'notice notice-warning';
 
-						$message = '<h3>'.__('Important Update Notice!', 'listingpro-plugin').'</h3>';		
-						
-						$message .= __('Thanks for updating your theme, now we highly recommend you to also update the following plugin called  ', 'listingpro-plugin');	
-						$message .= '<strong>';			
+						$message = '<h3>'.__('Important Update Notice!', 'listingpro-plugin').'</h3>';
+
+						$message .= __('Thanks for updating your theme, now we highly recommend you to also update the following plugin called  ', 'listingpro-plugin');
+						$message .= '<strong>';
 						$message .= __('ListingPro Plugin', 'listingpro-plugin');
-						$message .= '</strong>';						
+						$message .= '</strong>';
 						$message .= __( '  Go to Plugins, deactivate and delete  *ListingPro Plugin*. After deleting, the following notice will appear,  ', 'listingpro-plugin' );
-						$message .= '<strong>';			
+						$message .= '<strong>';
 						$message .= __('This theme requires the following plugin - Listingpro Plugin', 'listingpro-plugin');
 						$message .= '</strong>';
-						$message .= __( '  Click  ', 'listingpro-plugin' );						
-						
-						$message .= '<strong>';			
+						$message .= __( '  Click  ', 'listingpro-plugin' );
+
+						$message .= '<strong>';
 						$message .= __('begin installing plugin', 'listingpro-plugin');
 						$message .= '</strong>';
 						$message .= __( '  link. After installation is complete, activate the plugin. Listingpro plugin will be up to date', 'listingpro-plugin' );
 						$message .= '<br/>';
-						$message .= __( '  Additional Note for CHILD THEME Users: If you are using child theme then please switch to parent theme and follow the above steps and then switch back to child theme', 'listingpro-plugin' );						
-												
+						$message .= __( '  Additional Note for CHILD THEME Users: If you are using child theme then please switch to parent theme and follow the above steps and then switch back to child theme', 'listingpro-plugin' );
 
-						
+
+
 
 						printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message );
 					}
 				}
 			}
 		}
-		 
+
 	}
 }
 add_action( 'admin_notices', 'lp_notice_plugin_version' );
@@ -2914,32 +2916,32 @@ add_action( 'admin_notices', 'lp_notice_plugin_version' );
 	/* ==============lp get free fields ============ */
 	if (!function_exists('listingpro_get_term_openfields')) {
 		function listingpro_get_term_openfields($onbackend=false) {
-			
-		
+
+
 			$lpAllCatIds = array();
 			$lp_catterms = get_terms( array(
 				'taxonomy' => 'listing-category',
 				'hide_empty' => false,
 			) );
-			
+
 			if(!empty($lp_catterms)){
 				foreach($lp_catterms as $term){
 					array_push($lpAllCatIds,$term->term_id);
 				}
 			}
-			
-			
+
+
 			$output = null;
 			$fieldIDs = array();
-			
+
 			$texQuery = array(
                 'key' => 'lp_listingpro_options',
                 'value' => $lpAllCatIds,
                 'compare' => 'NOT IN'
             );
-			
-			
-			
+
+
+
 			$argss = array(
 					'post_type'  => 'form-fields',
 					'posts_per_page'  => -1,
@@ -2966,14 +2968,14 @@ add_action( 'admin_notices', 'lp_notice_plugin_version' );
 			}else{
 				$output = $fieldIDs;
 			}
-			
-			
+
+
 			return $output;
-			
+
 		}
 	}
 	/* ============== /// ============ */
-	
+
 	/* ==============  get post count of taxonomy term============ */
 	if(!function_exists('lp_count_postcount_taxonomy_term_byID')){
 		function lp_count_postcount_taxonomy_term_byID($post_type,$taxonomy, $termid){
@@ -2997,7 +2999,7 @@ add_action( 'admin_notices', 'lp_notice_plugin_version' );
 			return $postcounts;
 		}
 	}
-	
+
 	/* ============== is favourite or not only ============ */
 	if ( !function_exists('listingpro_is_favourite_new' ) )
 	{
@@ -3013,7 +3015,7 @@ add_action( 'admin_notices', 'lp_notice_plugin_version' );
 			return $return;
 		}
 	}
-	
+
 	/* ============== for mail sprintfto function============= */
 	if ( !function_exists('lp_sprintf2' ) ){
 		function lp_sprintf2($str='', $vars=array(), $char='%'){
@@ -3029,14 +3031,14 @@ add_action( 'admin_notices', 'lp_notice_plugin_version' );
 			return $str;
 		}
 	}
-	
+
 	/* ============== default featured image for listing ============= */
 	if ( !function_exists('lp_default_featured_image_listing' ) ){
 		function lp_default_featured_image_listing(){
 			global $listingpro_options;
 			$deafaultFeatImg = '';
 			if( isset($listingpro_options['lp_def_featured_image']) && !empty($listingpro_options['lp_def_featured_image']) ){
-				
+
 				$deafaultFeatImgID = $listingpro_options['lp_def_featured_image']['id'];
 				if( !empty($deafaultFeatImgID) ){
 					$deafaultFeatImg = wp_get_attachment_image_src($deafaultFeatImgID, 'listingpro-blog-grid', true );

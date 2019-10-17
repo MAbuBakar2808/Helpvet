@@ -70,8 +70,8 @@ class listingpro_TWRecentPostWidget extends WP_Widget {
                     echo '<div class="recent-thumb"><span class="post-format '.$format.'"></span></div>';
                 }
                 echo '<div class="jw-recent-content '.$class.'">';
-                    echo '<h3><a href="'.get_the_permalink().'">'.substr(strip_tags(get_the_title()),0,20).'</a></h3>';
-                    echo '<p>'.substr(strip_tags(get_the_content()),0,45).'.</p>';
+                    echo '<h3><a href="'.get_the_permalink().'">'.substr(strip_tags(get_the_title()),0,200).'</a></h3>';
+                    echo '<p>'.substr(strip_tags(get_the_content()),0,45).'</p>';
                     echo '<div class="meta">';
                             esc_html_e("", "listingpro");
                             echo '<span class="date">'.get_the_date( ' j F' ).'</span>';
